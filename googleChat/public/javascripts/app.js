@@ -1,4 +1,4 @@
-var app = agular.module("app", ["firebase"]);
+var app = angular.module("app", ["firebase"]);
 
 app.controller("mainCtrl", ["$scope", "$firebaseArray",
     function($scope,$firebaseArray){
@@ -14,6 +14,8 @@ app.controller("mainCtrl", ["$scope", "$firebaseArray",
                 img: ""    
             }
         ]
+
+        console.log(messages);
 
         $scope.chat = function(message){
             //create a new_message

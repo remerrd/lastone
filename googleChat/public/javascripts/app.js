@@ -5,15 +5,7 @@ app.controller("mainCtrl", ["$scope", "$firebaseArray",
         //firebase reference
         var ref = firebase.database().ref().child("messages");
         //copy the messages from the database
-        //$scope.messages = $firebaseArray(ref);
-
-        $scope.messages = [
-            {
-                user:"Ryan",
-                text:"Test Msg",
-                img: ""    
-            }
-        ]
+        $scope.messages = $firebaseArray(ref);
 
         console.log($scope.messages);
 

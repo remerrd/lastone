@@ -15,7 +15,7 @@ app.controller("mainCtrl", ["$scope", "$firebaseArray",
             }
         ]
 
-        console.log(messages);
+        console.log($scope.messages);
 
         $scope.chat = function(message){
             //create a new_message

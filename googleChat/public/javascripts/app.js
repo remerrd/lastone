@@ -12,9 +12,9 @@ app.controller("mainCtrl", ["$scope", "$firebaseArray",
         $scope.chat = function(message){
             //create a new_message
             var new_message = {
-                user:message.user,
+                user: document.getElementById('username').value,
                 text:message.text,
-                img:message.img    
+                img:document.getElementById('image').value   
             }
 
             //add the message to firebase

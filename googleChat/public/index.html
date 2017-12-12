@@ -103,6 +103,8 @@
           document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
           document.getElementById('quickstart-sign-in').textContent = 'Sign out';
           document.getElementById('username').value = user.email;
+          document.getElementById('image').value = user.photoURL;
+          document.getElementById('hide').style.display = 'inline';
           // [END_EXCLUDE]
         } else {
           // User is signed out.
@@ -157,11 +159,12 @@
           </div>
           <div ng-app="app" ng-controller="mainCtrl">
             <form novalidate class="simple-form">
-              Name: <input id ="username" type="text" ng-model="message.user" readonly/><br />
+              Name: <input id ="username" type="text" readonly/><br />
               Chat: <input type="text" ng-model="message.text" /><br />
+              <input type="hidden" id="image"/>
               <input type="submit" ng-click="chat(message)" value="Save" />
             </form>
-            <ul>
+            <ul id="hide">
             <li ng-repeat='line in messages'>
             {{line.user}} - {{line.text}}
             </li>

@@ -22,7 +22,7 @@ a {
 }
 li a {
   text-decoration: underline;
-  color: #0288d1;
+  color: #d1022f;
 }
 .mdl-grid {
   max-width: 1024px;
@@ -55,4 +55,16 @@ h3 {
 
 #id {
   display: none;
+}
+
+.customImage {
+  height: 50px;
+  width: auto;
+  float: left;
+  margin-right: 10px;
+}
+
+input {
+  width: 200px;
+  margin: 5px;
 }

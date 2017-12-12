@@ -111,8 +111,9 @@
           // [START_EXCLUDE]
           document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
           document.getElementById('quickstart-sign-in').textContent = 'Sign in with GitHub';
-          document.getElementById('quickstart-account-details').textContent = 'null';
-          document.getElementById('quickstart-oauthtoken').textContent = 'null';
+          document.getElementById('hide').style.display = 'none';
+          //document.getElementById('quickstart-account-details').textContent = 'null';
+          //document.getElementById('quickstart-oauthtoken').textContent = 'null';
           // [END_EXCLUDE]
         }
         // [START_EXCLUDE]
@@ -131,7 +132,7 @@
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
   <!-- Header section containing title -->
-  <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
+  <header class="mdl-layout__header mdl-color-text--white mdl-color--purple-900">
     <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
       <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--8-col-desktop">
         <a href="/"><h3>Rad Chat</h3></a>
@@ -144,8 +145,8 @@
 
       <!-- Container for the demo -->
       <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-        <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
-          <h2 class="mdl-card__title-text">Rad Chat Login</h2>
+        <div class="mdl-card__title mdl-color--purple-900 mdl-color-text--white">
+          <h2 class="mdl-card__title-text">Login</h2>
         </div>
         <div class="mdl-card__supporting-text mdl-color-text--grey-600">
           <p>Sign in with your GitHub account below.</p>
@@ -154,24 +155,40 @@
           <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in">Sign in with GitHub</button>
 
           <!-- Container where we'll display the user details -->
-          <div class="quickstart-user-details-container">
+          <div class="quickstart-user-details-container" style="display: none">
             Rad Chat sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
           </div>
-          <div ng-app="app" ng-controller="mainCtrl">
+          
+        </div>
+      </div>
+
+      <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+        <div class="mdl-card__title mdl-color--purple-900 mdl-color-text--white">
+          <h2 class="mdl-card__title-text">Chat</h2>
+        </div>
+        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+          <div ng-app="app" ng-controller="mainCtrl" id="hide">
+            <div ng-repeat='line in messages' class="customDiv">
+            <md-card md-theme="dark-purple" md-theme-watch>
+              <md-card-title>
+                <h6 class="md-headline" style="display:inline-block">{{line.user}}</h6>
+                <img ng-src="{{line.img}}" class="customImage"/>
+              </md-card-title>
+              <md-card-content>
+                <p>{{line.text}}</p>
+              </md-card-content>
+            </md-card>
+            </div>
             <form novalidate class="simple-form">
-              Name: <input id ="username" type="text" readonly/><br />
-              Chat: <input type="text" ng-model="message.text" /><br />
+              <input id ="username" type="hidden" readonly/><br />
+              Make a Comment: <input type="text" ng-model="message.text" />
               <input type="hidden" id="image"/>
-              <input type="submit" ng-click="chat(message)" value="Save" />
+              <input type="submit" ng-click="chat(message)" value="Comment" /><br />
             </form>
-            <ul id="hide">
-            <li ng-repeat='line in messages'>
-            {{line.user}} - {{line.text}}
-            </li>
-            </ul>
           </div>
         </div>
       </div>
+
     </div>
   </main>
 </div>
